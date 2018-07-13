@@ -18,16 +18,49 @@ namespace InputValidation
             InitializeComponent();
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
+        private void BtnSave_Click(object sender, EventArgs e)
         {
-            if (!Regex.IsMatch(txtName.Text, @"^([A-Za-z]*\s*)+$"))
+            if (!ValidName(txtName.Text))
                 MessageBox.Show("The name is invalid (only alphabetical characters are allowed)");
 
-            if (!Regex.IsMatch(txtPhone.Text, @"^((\(\d{3}\)?)|(\d{3}-))?\d{3}-\d{4}$"))
-                MessageBox.Show("The phone number is not a valid US phone number");
+            txtPhone = ReformatPhone(txtPhone.Text);
 
-            if (!Regex.IsMatch(txtEmail.Text, @"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$"))
+            if (!ValidPhone(txtPhone))
+                MessageBox.Show("The phone number is not a valid US phone number");
+            else
+            {
+                MessageBox.Show(ReformatPhone(txtPhone.Text));
+            }
+
+            if (!ValidEmail(txtEmail.Text))
                 MessageBox.Show("The e-mail address is not valid.");
+        }
+
+        private bool ValidName(string txt)
+        {
+            string name = @"[A-Za-z]";
+            string whitespace = @"\s";
+            return Regex.IsMatch(txt, @"^(" + name + whitespace + "*)+$");
+        }
+
+        private bool ValidPhone(string txt)
+        {
+            return Regex.IsMatch(txt, @"^((\(\d{3}\)?)|(\d{3}-))?\d{3}-\d{4}$");
+        }
+
+        private bool ValidEmail(string txt)
+        {
+            return Regex.IsMatch(txt, @"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$");
+        }
+
+        private string ReformatPhone(string s)
+        {
+            Match m = Regex.Match(s, @"^\(?(\d{3})\)?[\s\-]?(\d{3})\-?(\d{4})$");
+
+            return String.Format("({0}) {1}-{2}",
+                                 m.Groups[1],
+                                 m.Groups[2],
+                                 m.Groups[3]);
         }
     }
 }
