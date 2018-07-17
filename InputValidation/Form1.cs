@@ -23,13 +23,12 @@ namespace InputValidation
             if (!ValidName(txtName.Text))
                 MessageBox.Show("The name is invalid (only alphabetical characters are allowed)");
 
-            txtPhone = ReformatPhone(txtPhone.Text);
-
-            if (!ValidPhone(txtPhone))
+            if (!ValidPhone(txtPhone.Text))
                 MessageBox.Show("The phone number is not a valid US phone number");
             else
             {
-                MessageBox.Show(ReformatPhone(txtPhone.Text));
+                txtPhone.Text = ReformatPhone(txtPhone.Text);
+                MessageBox.Show(txtPhone.Text);
             }
 
             if (!ValidEmail(txtEmail.Text))
@@ -62,5 +61,7 @@ namespace InputValidation
                                  m.Groups[2],
                                  m.Groups[3]);
         }
+
+
     }
 }

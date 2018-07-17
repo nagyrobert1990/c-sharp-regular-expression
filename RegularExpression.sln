@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27703.2035
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InputValidation", "InputValidation\InputValidation.csproj", "{C05ED4DD-805A-4DCB-B49B-639886C5F67B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConvertText", "ConvertText\ConvertText.csproj", "{9490BBCB-0A88-49FA-88D6-1E60F51F49F0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{C05ED4DD-805A-4DCB-B49B-639886C5F67B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C05ED4DD-805A-4DCB-B49B-639886C5F67B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C05ED4DD-805A-4DCB-B49B-639886C5F67B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9490BBCB-0A88-49FA-88D6-1E60F51F49F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9490BBCB-0A88-49FA-88D6-1E60F51F49F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9490BBCB-0A88-49FA-88D6-1E60F51F49F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9490BBCB-0A88-49FA-88D6-1E60F51F49F0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
